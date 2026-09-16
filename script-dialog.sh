@@ -14,3 +14,6 @@ do
   source "$src" || exit 1
   echo "$src"
 done
+
+# the rest goes there
+datepicker
