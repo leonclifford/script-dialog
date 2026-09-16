@@ -3,10 +3,14 @@
 # https://github.com/lunarcloud/script-dialog
 # LGPL-2.1 license
 
-# Get the directory where this script is located
+# get the directories
 SCRIPT_DIALOG_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CURRENT_FILE="$(realpath -- "${BASH_SOURCE[0]}")"
 
-for src in "$SCRIPT_DIALOG_DIR"/*.sh
+#sources everything, excludes current file
+for src in ./*.sh
 do
-  source "$src"
+  [[ "$(realpath -- "$src")" == "$CURRENT_FILE" ]] && continue
+  source "$src" || exit 1
+  echo "$src"
 done
