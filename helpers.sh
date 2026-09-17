@@ -7,12 +7,7 @@
 # shellcheck disable=SC2154
 
 function listfunc() {
-
-for file in *.sh
-do
-  echo "$file"
-done
-
+  compgen -A function
 }
 
 #######################################
