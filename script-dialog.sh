@@ -7,7 +7,7 @@
 SCRIPT_DIALOG_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 CURRENT_FILE="$(realpath -- "${BASH_SOURCE[0]}")"
 
-#sources everything, excludes current file
+# sources everything, excludes current file
 for src in ./*.sh
 do
   [[ "$(realpath -- "$src")" == "$CURRENT_FILE" ]] && continue
