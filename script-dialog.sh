@@ -12,7 +12,7 @@ for src in ./*.sh
 do
   [[ "$(realpath -- "$src")" == "$CURRENT_FILE" ]] && continue
   source "$src" || exit 1
-  echo "$src"
+  #echo "$src"
 done
 
 # execute told function
