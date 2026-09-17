@@ -7,7 +7,7 @@
 SCRIPT_DIALOG_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 CURRENT_FILE="$(realpath -- "${BASH_SOURCE[0]}")"
 
-# sources everything, excludes current file
+# sources everything in folder, excludes current file
 for src in ./*.sh
 do
   [[ "$(realpath -- "$src")" == "$CURRENT_FILE" ]] && continue
@@ -15,5 +15,12 @@ do
   echo "$src"
 done
 
+# execute told function
+if declare -f "$1" >/dev/null; then
+ "$1"
+else
+  echo "Function not found"
+fi
+
 # the rest goes there
-datepicker
+
