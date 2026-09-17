@@ -6,6 +6,15 @@
 # Variables set in init.sh and used here
 # shellcheck disable=SC2154
 
+function listfunc() {
+
+for file in *.sh
+do
+  echo "$file"
+done
+
+}
+
 #######################################
 # Attempts to run a privileged command (sudo or equivalent)
 # GLOBALS:
@@ -19,6 +28,7 @@
 # RETURN:
 # 	0 if success, non-zero otherwise.
 #######################################
+
 function superuser() {
   if [ "$NO_SUDO" == true ]; then
     (>&2 echo "${red}No sudo available!${normal}")
@@ -41,7 +51,7 @@ function superuser() {
 #######################################
 # Set the GUI_TITLE based on the ACTIVITY and APP_NAME
 # GLOBALS:
-# 	GUI_TITLE
+#   GUI_TITLE
 #   ACTIVITY
 #   APP_NAME
 # ARGUMENTS:
